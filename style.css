@@ -1,0 +1,1346 @@
+/* =========================================================
+   AUTOVERSE
+   ADVANCED GLASSMORPHISM AUTOMOBILE WEBSITE
+========================================================= */
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #070a0f;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   NAVBAR - GLASSMORPHISM
+========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 6%;
+
+    z-index: 1000;
+
+    background: rgba(10, 15, 25, 0.45);
+
+    backdrop-filter: blur(25px) saturate(150%);
+    -webkit-backdrop-filter: blur(25px) saturate(150%);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #35c5ff,
+        #9b4dff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+
+    margin-left: 20px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #42c7ff;
+    text-shadow: 0 0 15px rgba(66, 199, 255, 0.7);
+}
+
+
+/* =========================================================
+   HERO SECTION
+   BACKGROUND IMAGE ONLY HERE
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.78)
+        ),
+        url("images/car-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+}
+
+
+/* Animated blue light */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    top: -300px;
+    left: -200px;
+
+    background: radial-gradient(
+        circle,
+        rgba(0, 174, 255, 0.25),
+        transparent 65%
+    );
+
+    animation: blueLight 8s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* Animated pink light */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -250px;
+    bottom: -300px;
+
+    background: radial-gradient(
+        circle,
+        rgba(180, 40, 255, 0.22),
+        transparent 65%
+    );
+
+    animation: purpleLight 10s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes blueLight {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(120px, 80px);
+    }
+}
+
+
+@keyframes purpleLight {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-100px, -80px);
+    }
+}
+
+
+/* =========================================================
+   HERO GLASS PANEL
+========================================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 90%);
+
+    padding: 65px 45px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 35px;
+
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.55),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+    animation: heroAppear 1s ease;
+}
+
+
+@keyframes heroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Hero small label */
+
+.hero-content span {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    margin-bottom: 18px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* Hero title */
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 110px);
+
+    font-weight: 900;
+
+    letter-spacing: -5px;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #43c8ff,
+        #ffffff,
+        #a34dff
+    );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: titleGradient 6s linear infinite;
+}
+
+
+@keyframes titleGradient {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 300%;
+    }
+}
+
+
+.hero p {
+    max-width: 700px;
+
+    margin: 25px auto 35px;
+
+    color: #dedede;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   GENERAL BUTTON
+========================================================= */
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+
+/* Hero buttons */
+
+.hero button {
+    padding: 14px 28px;
+
+    margin: 7px;
+
+    border-radius: 50px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #007bff,
+            #7d35ff
+        );
+
+    box-shadow:
+        0 10px 35px rgba(0, 123, 255, 0.35);
+}
+
+
+.hero button:hover {
+    transform: translateY(-5px) scale(1.03);
+
+    box-shadow:
+        0 15px 50px rgba(0, 170, 255, 0.5);
+}
+
+
+/* =========================================================
+   NORMAL SECTIONS
+   NO BACKGROUND IMAGE HERE
+========================================================= */
+
+section {
+    position: relative;
+
+    padding: 100px 7%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #080b10,
+            #0b1018
+        );
+}
+
+
+section h2 {
+    position: relative;
+
+    text-align: center;
+
+    font-size: 42px;
+
+    margin-bottom: 45px;
+
+    font-weight: 800;
+}
+
+
+section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 4px;
+
+    margin: 12px auto 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00bfff,
+            #8b35ff
+        );
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 22px;
+
+    padding: 70px 7%;
+
+    background: #080b10;
+}
+
+
+.stat-card {
+    position: relative;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+
+    transition: 0.4s ease;
+}
+
+
+.stat-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(60, 190, 255, 0.6);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(0, 170, 255, 0.15);
+}
+
+
+.stat-card h3 {
+    font-size: 42px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #35c5ff,
+            #a04cff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+    max-width: 750px;
+
+    margin: 0 auto 35px;
+}
+
+
+.search-box input {
+    width: 100%;
+
+    padding: 17px 24px;
+
+    border-radius: 50px;
+
+    outline: none;
+
+    color: white;
+
+    font-size: 16px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.17);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.1),
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    transition: 0.3s;
+}
+
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+.search-box input:focus {
+    border-color: #35bfff;
+
+    box-shadow:
+        0 0 25px rgba(0, 180, 255, 0.2);
+}
+
+
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
+
+.filter-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 40px;
+}
+
+
+.filter-buttons button {
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.3s;
+}
+
+
+.filter-buttons button:hover {
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 130, 255, 0.5),
+            rgba(130, 40, 255, 0.5)
+        );
+
+    border-color: rgba(80, 200, 255, 0.6);
+
+    box-shadow:
+        0 0 20px rgba(0, 160, 255, 0.2);
+}
+
+
+/* =========================================================
+   VEHICLE GRID
+========================================================= */
+
+#vehicleGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   VEHICLE GLASS CARD
+========================================================= */
+
+.vehicle-card {
+    position: relative;
+
+    padding: 18px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.065);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border 0.4s ease;
+}
+
+
+.vehicle-card:hover {
+    transform: translateY(-12px) scale(1.015);
+
+    border-color: rgba(50, 190, 255, 0.6);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(0, 170, 255, 0.14);
+}
+
+
+.vehicle-card img {
+    width: 100%;
+
+    height: 190px;
+
+    object-fit: cover;
+
+    border-radius: 17px;
+
+    transition: 0.5s ease;
+}
+
+
+.vehicle-card:hover img {
+    transform: scale(1.06);
+}
+
+
+.vehicle-card h3 {
+    margin-top: 16px;
+
+    font-size: 22px;
+}
+
+
+.vehicle-card p {
+    color: #aaa;
+
+    margin-top: 3px;
+}
+
+
+/* Card buttons */
+
+.vehicle-card button,
+.garage-card button {
+    padding: 9px 14px;
+
+    margin-top: 12px;
+    margin-right: 5px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087eff,
+            #7135e8
+        );
+}
+
+
+.vehicle-card button:hover,
+.garage-card button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 140, 255, 0.3);
+}
+
+
+/* =========================================================
+   BLOGS
+========================================================= */
+
+#blogList {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+
+    margin-bottom: 50px;
+}
+
+
+.blog-card {
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.065);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition: 0.4s ease;
+}
+
+
+.blog-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(50, 190, 255, 0.5);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+
+.blog-card h3 {
+    font-size: 23px;
+
+    margin-bottom: 10px;
+}
+
+
+.blog-card p {
+    color: #c5c5c5;
+}
+
+
+.blog-card small {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #6fcfff;
+}
+
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+#reviewList {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+
+    margin-bottom: 50px;
+}
+
+
+.review-card {
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.065);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition: 0.4s ease;
+}
+
+
+.review-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+
+.review-card h3 {
+    margin-bottom: 10px;
+}
+
+
+.review-card p {
+    color: #ccc;
+}
+
+
+.review-card small {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #6fcfff;
+}
+
+
+/* =========================================================
+   FORMS - GLASS
+========================================================= */
+
+form {
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.065);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+
+    margin: 8px 0;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    color: white;
+
+    background: rgba(0, 0, 0, 0.3);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+}
+
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #35bfff;
+
+    box-shadow:
+        0 0 20px rgba(0, 170, 255, 0.15);
+}
+
+
+form input::placeholder,
+form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+form textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+form button {
+    padding: 12px 25px;
+
+    margin-top: 12px;
+
+    border-radius: 25px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #007bff,
+            #7a35ed
+        );
+}
+
+
+form button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 140, 255, 0.3);
+}
+
+
+/* =========================================================
+   COMPARE
+========================================================= */
+
+.compare-table {
+    width: 100%;
+
+    margin-top: 30px;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 15px;
+}
+
+
+.compare-table th,
+.compare-table td {
+    padding: 15px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.compare-table th {
+    background:
+        rgba(0, 140, 255, 0.18);
+
+    color: #ffffff;
+}
+
+
+.compare-table td {
+    color: #d5d5d5;
+}
+
+
+/* =========================================================
+   GARAGE
+========================================================= */
+
+#garageList {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 25px;
+}
+
+
+.garage-card {
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.065);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition: 0.4s ease;
+}
+
+
+.garage-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(50, 190, 255, 0.5);
+}
+
+
+/* =========================================================
+   EMI CALCULATOR
+========================================================= */
+
+#emiResult {
+    max-width: 700px;
+
+    margin: 25px auto;
+
+    padding: 20px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   VEHICLE MODAL
+========================================================= */
+
+#vehicleModal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+#vehicleModal.show {
+    display: flex;
+}
+
+
+#modalContent {
+    position: relative;
+
+    width: min(700px, 95%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    border-radius: 28px;
+
+    background: rgba(20, 25, 35, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.65),
+        inset 0 1px rgba(255, 255, 255, 0.15);
+
+    animation: modalOpen 0.35s ease;
+}
+
+
+#modalContent img {
+    width: 100%;
+
+    max-height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+@keyframes modalOpen {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 50px 7%;
+
+    text-align: center;
+
+    color: #888;
+
+    background: #05070a;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark {
+    background: #020408;
+}
+
+
+body.dark section {
+    background:
+        linear-gradient(
+            135deg,
+            #020408,
+            #070b12
+        );
+}
+
+
+/* =========================================================
+   GLASS REFLECTION EFFECT
+========================================================= */
+
+.vehicle-card::before,
+.blog-card::before,
+.review-card::before,
+.garage-card::before,
+.stat-card::before,
+form::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.08),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.8s;
+
+    pointer-events: none;
+}
+
+
+.vehicle-card:hover::before,
+.blog-card:hover::before,
+.review-card:hover::before,
+.garage-card:hover::before,
+.stat-card:hover::before,
+form:hover::before {
+    left: 140%;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #030508;
+}
+
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            #009cff,
+            #8635ff
+        );
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+        linear-gradient(
+            #25c5ff,
+            #a34cff
+        );
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 15px 4%;
+    }
+
+    .navbar a {
+        margin-left: 10px;
+        font-size: 13px;
+    }
+
+    .hero {
+        background-attachment: scroll;
+    }
+
+    .hero-content {
+        padding: 45px 25px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+        letter-spacing: -2px;
+    }
+
+    section {
+        padding: 75px 5%;
+    }
+
+    section h2 {
+        font-size: 34px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 11px;
+        margin-left: 5px;
+    }
+
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        width: 94%;
+        padding: 40px 18px;
+
+        border-radius: 25px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero button {
+        padding: 12px 20px;
+    }
+
+    section h2 {
+        font-size: 29px;
+    }
+
+    .vehicle-card img {
+        height: 180px;
+    }
+
+    .compare-table {
+        font-size: 12px;
+    }
+
+    .compare-table th,
+    .compare-table td {
+        padding: 9px 5px;
+    }
+}

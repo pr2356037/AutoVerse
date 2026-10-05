@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AutoVerse - World Automobile Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        AUTO<span>VERSE</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#vehicles">Vehicles</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#compare">Compare</a>
+        <a href="#garage">Garage</a>
+        <a href="#emi">EMI</a>
+    </nav>
+
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-small">THE WORLD OF AUTOMOBILES</p>
+
+        <h1>
+            Explore The
+            <span>World's Vehicles</span>
+        </h1>
+
+        <p>
+            Discover cars, bikes, trucks, buses, vans and electric
+            vehicles from manufacturers around the world.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button onclick="goTo('vehicles')">
+                Explore Vehicles
+            </button>
+
+            <button class="outline" onclick="goTo('blogs')">
+                Read Blogs
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="stat">
+        <h2 id="vehicleCount">0</h2>
+        <p>Vehicles</p>
+    </div>
+
+    <div class="stat">
+        <h2 id="brandCount">0</h2>
+        <p>Brands</p>
+    </div>
+
+    <div class="stat">
+        <h2 id="countryCount">0</h2>
+        <p>Countries</p>
+    </div>
+
+    <div class="stat">
+        <h2 id="blogCount">0</h2>
+        <p>Blogs</p>
+    </div>
+
+</section>
+
+
+<!-- ================= VEHICLES ================= -->
+
+<section id="vehicles" class="section">
+
+    <div class="section-heading">
+
+        <p>WORLD DATABASE</p>
+
+        <h2>Explore Vehicles</h2>
+
+        <span>
+            Search and discover vehicles from around the world.
+        </span>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-area">
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search vehicle, brand or country..."
+            oninput="applyFilters()"
+        >
+
+        <button onclick="resetFilters()">
+            Reset
+        </button>
+
+    </div>
+
+
+    <!-- VEHICLE TYPE -->
+
+    <div class="filter-title">
+        Vehicle Type
+    </div>
+
+    <div class="filter-buttons">
+
+        <button onclick="setType('All')">All</button>
+
+        <button onclick="setType('Car')">
+            🚗 Cars
+        </button>
+
+        <button onclick="setType('Bike')">
+            🏍️ Bikes
+        </button>
+
+        <button onclick="setType('Truck')">
+            🚚 Trucks
+        </button>
+
+        <button onclick="setType('Bus')">
+            🚌 Buses
+        </button>
+
+        <button onclick="setType('Van')">
+            🚐 Vans
+        </button>
+
+        <button onclick="setType('Pickup')">
+            🛻 Pickups
+        </button>
+
+    </div>
+
+
+    <!-- COUNTRY -->
+
+    <div class="filter-row">
+
+        <select id="countryFilter" onchange="applyFilters()">
+
+            <option value="All">All Countries</option>
+
+        </select>
+
+
+        <select id="brandFilter" onchange="applyFilters()">
+
+            <option value="All">All Brands</option>
+
+        </select>
+
+
+        <select id="categoryFilter" onchange="applyFilters()">
+
+            <option value="All">All Categories</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- VEHICLE GRID -->
+
+    <div id="vehicleGrid" class="vehicle-grid"></div>
+
+</section>
+
+
+<!-- ================= BLOGS ================= -->
+
+<section id="blogs" class="section dark-section">
+
+    <div class="section-heading">
+
+        <p>AUTOMOTIVE COMMUNITY</p>
+
+        <h2>AutoVerse Blogs</h2>
+
+    </div>
+
+
+    <div id="blogList" class="content-grid"></div>
+
+
+    <div class="form-card">
+
+        <h2>✍️ Publish Your Blog</h2>
+
+        <form id="blogForm">
+
+            <input
+                id="blogTitle"
+                type="text"
+                placeholder="Blog title"
+                required
+            >
+
+            <input
+                id="blogAuthor"
+                type="text"
+                placeholder="Your name"
+                required
+            >
+
+            <input
+                id="blogVehicle"
+                type="text"
+                placeholder="Vehicle name"
+            >
+
+            <textarea
+                id="blogDescription"
+                placeholder="Write your automobile blog..."
+                required
+            ></textarea>
+
+            <button type="submit">
+                Publish Blog
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section id="reviews" class="section">
+
+    <div class="section-heading">
+
+        <p>COMMUNITY OPINIONS</p>
+
+        <h2>Vehicle Reviews</h2>
+
+    </div>
+
+
+    <div id="reviewList" class="content-grid"></div>
+
+
+    <div class="form-card">
+
+        <h2>⭐ Write a Review</h2>
+
+        <form id="reviewForm">
+
+            <input
+                id="reviewAuthor"
+                type="text"
+                placeholder="Your name"
+                required
+            >
+
+            <input
+                id="reviewVehicle"
+                type="text"
+                placeholder="Vehicle name"
+                required
+            >
+
+            <textarea
+                id="reviewOpinion"
+                placeholder="Your opinion..."
+                required
+            ></textarea>
+
+            <select id="reviewRating" required>
+
+                <option value="">
+                    Select Rating
+                </option>
+
+                <option value="5">
+                    ⭐⭐⭐⭐⭐
+                </option>
+
+                <option value="4">
+                    ⭐⭐⭐⭐
+                </option>
+
+                <option value="3">
+                    ⭐⭐⭐
+                </option>
+
+                <option value="2">
+                    ⭐⭐
+                </option>
+
+                <option value="1">
+                    ⭐
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Submit Review
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COMPARE ================= -->
+
+<section id="compare" class="section dark-section">
+
+    <div class="section-heading">
+
+        <p>COMPARE</p>
+
+        <h2>Vehicle Comparison</h2>
+
+    </div>
+
+
+    <div class="compare-box">
+
+        <select id="compareOne"></select>
+
+        <span>VS</span>
+
+        <select id="compareTwo"></select>
+
+        <button onclick="compareVehicles()">
+            Compare
+        </button>
+
+    </div>
+
+
+    <div id="compareResult"></div>
+
+</section>
+
+
+<!-- ================= GARAGE ================= -->
+
+<section id="garage" class="section">
+
+    <div class="section-heading">
+
+        <p>PERSONAL COLLECTION</p>
+
+        <h2>My Garage</h2>
+
+    </div>
+
+
+    <div id="garageList" class="content-grid"></div>
+
+</section>
+
+
+<!-- ================= EMI ================= -->
+
+<section id="emi" class="section dark-section">
+
+    <div class="section-heading">
+
+        <p>FINANCE</p>
+
+        <h2>EMI Calculator</h2>
+
+    </div>
+
+
+    <div class="emi-card">
+
+        <input
+            type="number"
+            id="loanAmount"
+            placeholder="Loan Amount ₹"
+        >
+
+        <input
+            type="number"
+            id="interestRate"
+            placeholder="Interest Rate %"
+        >
+
+        <input
+            type="number"
+            id="loanYears"
+            placeholder="Loan Period in Years"
+        >
+
+        <button onclick="calculateEMI()">
+            Calculate EMI
+        </button>
+
+        <h3 id="emiResult">
+        </h3>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div id="vehicleModal" class="modal">
+
+    <div class="modal-content">
+
+        <button
+            class="close"
+            onclick="closeModal()">
+            ✕
+        </button>
+
+        <div id="modalBody"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>AUTO<span>VERSE</span></h2>
+
+    <p>
+        Explore • Compare • Discover
+    </p>
+
+    <p>
+        © 2026 AutoVerse
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
